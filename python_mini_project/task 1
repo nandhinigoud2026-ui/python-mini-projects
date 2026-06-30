@@ -1,0 +1,11 @@
+import random
+words=["python","apple","chair","ocean","tiger"]
+word=random.choice(words)
+guessed=[];tries=6
+while tries and set(word)-set(guessed):
+    print("Word:"," ".join(c if c in guessed else "_" for c in word))
+    g=input("Letter: ").lower()
+    if len(g)!=1 or not g.isalpha(): continue
+    if g in word: guessed.append(g)
+    else: tries-=1; print("Wrong! Tries:",tries)
+print("You won!" if not(set(word)-set(guessed)) else f"You lost! Word was {word}")

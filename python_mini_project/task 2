@@ -1,0 +1,10 @@
+prices={"AAPL":180,"TSLA":250,"GOOG":140,"MSFT":320}
+total=0
+while True:
+    s=input("Stock (or done): ").upper()
+    if s=="DONE": break
+    if s in prices:
+        q=int(input("Qty: "))
+        total+=prices[s]*q
+print("Total investment:",total)
+with open("investment.txt","w") as f:f.write(str(total))
